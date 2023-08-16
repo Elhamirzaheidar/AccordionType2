@@ -23,7 +23,12 @@ function Accordion() {
   return (
     <div className="accordion">
       {date.map((item) => (
-        <AccordionItem key={item.id} item={item} setOpen={setOpen} open={open} />
+        <AccordionItem
+          key={item.id}
+          item={item}
+          setOpen={setOpen}
+          open={open}
+        />
       ))}
     </div>
   );
@@ -31,14 +36,11 @@ function Accordion() {
 
 export default Accordion;
 
-function AccordionItem({ item ,setOpen,open}) {
- const isOpen=item.id===open 
+function AccordionItem({ item, setOpen, open }) {
+  const isOpen = item.id === open;
   return (
     <div className={`accordion-item ${isOpen ? "accordion__expanded" : ""}`}>
-      <div
-        className="accordion-item__header"
-        onClick={()=>setOpen(item.id)}
-      >
+      <div className="accordion-item__header" onClick={() => setOpen(item.id)}>
         {item.title}
         <ChevronDownIcon
           style={{
